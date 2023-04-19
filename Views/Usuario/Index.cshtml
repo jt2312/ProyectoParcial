@@ -4,10 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Listado</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create" role="button">Crear</a>
+    @* <button type="button" class="btn btn-secondary btn-lg"><a asp-action="Create">Crear nuevo Usuario</a></button> *@
 </p>
 <table class="table">
     <thead>
