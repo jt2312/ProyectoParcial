@@ -10,9 +10,9 @@
     <a class="btn btn-primary" asp-action="Create" role="button">Crear</a>
     @* <button type="button" class="btn btn-secondary btn-lg"><a asp-action="Create">Crear nuevo Usuario</a></button> *@
 </p>
-<table class="table">
-    <thead>
-        <tr>
+<table class="table table striped">
+    <thead class="thead-primary">
+        <tr class="table-primary">
             <th>
                 @Html.DisplayNameFor(model => model.Usuarioo)
             </th>
@@ -85,10 +85,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.terminos)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            <td>    
+                <button class="btn btn-primary btn-sm">
+                <a class="text-dark" asp-action="Edit" asp-route-id="@item.ID"  >Editar</a>
+                <button class="btn btn-secondary btn-sm">
+                <a class="text-dark" asp-action="Details" asp-route-id="@item.ID" >Detalle</a>
+                <button class="btn btn-danger btn-sm">
+                <a class="text-dark" asp-action="Delete" asp-route-id="@item.ID" >Eliminar</a>    
             </td>
         </tr>
 }
