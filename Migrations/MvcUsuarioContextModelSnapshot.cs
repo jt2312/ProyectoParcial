@@ -17,6 +17,37 @@ namespace Parcial1.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
 
+            modelBuilder.Entity("Parcial1.Models.Rol", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("DescripcionRol")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("EsAlumno")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Esprofesor")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Mail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId")
+                        .IsUnique();
+
+                    b.ToTable("Rol", (string)null);
+                });
+
             modelBuilder.Entity("Parcial1.Models.Usuario", b =>
                 {
                     b.Property<int>("ID")
@@ -35,8 +66,13 @@ namespace Parcial1.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("RolId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Usuarioo")
                         .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("documento")
@@ -65,7 +101,24 @@ namespace Parcial1.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuario", (string)null);
+                });
+
+            modelBuilder.Entity("Parcial1.Models.Rol", b =>
+                {
+                    b.HasOne("Parcial1.Models.Usuario", "Usuario")
+                        .WithOne("Rol")
+                        .HasForeignKey("Parcial1.Models.Rol", "UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Parcial1.Models.Usuario", b =>
+                {
+                    b.Navigation("Rol")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

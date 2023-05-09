@@ -15,5 +15,7 @@ namespace MvcUsuario.Data
         }
 
         public DbSet<Parcial1.Models.Usuario> Usuario { get; set; } = default!;
+
+        
     }
 }

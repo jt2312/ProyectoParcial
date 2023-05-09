@@ -4,3 +4,308 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+<br>
+<h4 class="text-center"> Editar Usuario</h4>
+<hr />
+<div class="d-flex justify-content-center align-items-center">
+  <div>Contenido del div que quiero centrar</div>
+</div>
+<div class="d-flex justify-content-center">
+  <div>Contenido del div que quiero centrar</div>
+</div>
+
+@* 
+
+
+
+
+
+
+        @* <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Usuarioo)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Usuarioo)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Contraseña)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Contraseña)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Apellido)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Apellido)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.fechanacimiento)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.fechanacimiento)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.genero)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.genero)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.documento)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.documento)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.nacionalidad)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.nacionalidad)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.domicilio)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.domicilio)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.terminos)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.terminos)
+            </dd>
+        </dl> *@
+    
+
+    @* <tr class="align-middle text-center">
+        
+            <td>
+                 @Html.DisplayNameFor(model => model.Usuarioo)
+            </td>            
+            <td>
+                    @Html.DisplayFor(model => model.Usuarioo)
+            </td>
+            <td>
+                    @Html.DisplayNameFor(model => model.Contraseña)
+            </td>
+            <td>
+                    @Html.DisplayFor(model => model.Contraseña)
+            </td> 
+    </tr> *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
+@model Parcial1.Models.Usuario
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br>
+<h4 class="text-center"> Editar Usuario</h4>
+<hr />
+<div class="container">
+
+</div>
+<div class="row">   
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Usuarioo" class="control-label"></label>
+                <input asp-for="Usuarioo" class="form-control" />
+                <span asp-validation-for="Usuarioo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contraseña" class="control-label"></label>
+                <input asp-for="Contraseña" class="form-control" />
+                <span asp-validation-for="Contraseña" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fechanacimiento" class="control-label"></label>
+                <input asp-for="fechanacimiento" class="form-control" />
+                <span asp-validation-for="fechanacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="genero" class="control-label"></label>
+                <input asp-for="genero" class="form-control" />
+                <span asp-validation-for="genero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="documento" class="control-label"></label>
+                <input asp-for="documento" class="form-control" />
+                <span asp-validation-for="documento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nacionalidad" class="control-label"></label>
+                <input asp-for="nacionalidad" class="form-control" />
+                <span asp-validation-for="nacionalidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="domicilio" class="control-label"></label>
+                <input asp-for="domicilio" class="form-control" />
+                <span asp-validation-for="domicilio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telefono" class="control-label"></label>
+                <input asp-for="telefono" class="form-control" />
+                <span asp-validation-for="telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="terminos" /> @Html.DisplayNameFor(model => model.terminos)
+                </label>
+            </div>
+
+                <input type="submit" value="Save" class="btn btn-success" />   
+                <a asp-action="Index" class="btn btn-secondary" role="button" aria-pressed="true">Volver a la Lista</a>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+ *@
+
+
+
+
+
+
+
+
+@*  
+<div>
+    <h4>Quieres elimiar el Usuario?</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuarioo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Usuarioo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Contraseña)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fechanacimiento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fechanacimiento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.genero)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.genero)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.documento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.documento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nacionalidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nacionalidad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.domicilio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.domicilio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.terminos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.terminos)
+        </dd>
+    </dl> *@

@@ -1,99 +1,120 @@
-@model IEnumerable<Parcial1.Models.Usuario>
+@using Parcial1.ViewModels;
+@model Parcial1.ViewModels.UsuarioViewModels;
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Listado</h1>
+<br>
+
+<div class="text-center">
+  <h3 class="mx-auto">Listado de Usuarios</h3>
+</div>
+<p>
+
+<div class="text-center">
+    <a class="btn btn-warning" asp-action="Create" role="button">Crear Usuario</a>
+</div>
+
 
 <p>
-    <a class="btn btn-primary" asp-action="Create" role="button">Crear</a>
-    @* <button type="button" class="btn btn-secondary btn-lg"><a asp-action="Create">Crear nuevo Usuario</a></button> *@
-</p>
-<table class="table table striped">
-    <thead class="thead-primary">
-        <tr class="table-primary">
-            <th>
-                @Html.DisplayNameFor(model => model.Usuarioo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contraseña)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.fechanacimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.genero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.documento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nacionalidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.domicilio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.terminos)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+
+<table class="table table-striped table-hover ">
+        <thead class = "table-dark" >
+            <tr class="text-center align-middle">   
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().Usuarioo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().Contraseña)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().Apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().fechanacimiento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().genero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().documento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().nacionalidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().domicilio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuarios.FirstOrDefault().terminos)
+
+                </th>
+                 <th class="text-center align-middle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                    </svg>
+                </th>
+            </tr>
+        </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuarioo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contraseña)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fechanacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.genero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.documento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nacionalidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.domicilio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.terminos)
-            </td>
-            <td>    
-                <button class="btn btn-primary btn-sm">
-                <a class="text-dark" asp-action="Edit" asp-route-id="@item.ID"  >Editar</a>
-                <button class="btn btn-secondary btn-sm">
-                <a class="text-dark" asp-action="Details" asp-route-id="@item.ID" >Detalle</a>
-                <button class="btn btn-danger btn-sm">
-                <a class="text-dark" asp-action="Delete" asp-route-id="@item.ID" >Eliminar</a>    
-            </td>
-        </tr>
-}
+    @foreach (var item in Model.Usuarios) {
+            <tr class="align-middle text-center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuarioo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contraseña)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechanacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.genero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.documento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nacionalidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.domicilio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td class="align-middle text-center">
+                    @Html.DisplayFor(modelItem => item.terminos)
+                </td>
+
+                <td>    
+                    <a asp-action="Edit" asp-route-id="@item.ID"  class="btn btn-primary btn-sm" role="button" aria-pressed="true">  Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">Detalle </a>
+                    <a asp-action="Delete" asp-route-id="@item.ID"  class="btn btn-danger btn-sm" role="button" aria-pressed="true">Eliminar</a>
+                </td>
+            </tr>
+
+    }
     </tbody>
 </table>
+                <div>
+                    <form method="get" asp-action="Index" asp-controller="Usuario" class="d-flex">
+                        <div>
+                            <input class="form-control me-2" asp-for="NameFilter" placeholder="Buscar">
+                        </div>
+                        <button class="btn btn-outline-secondary " type="submit">Buscar</button>
+                    </form> 
+                </div>

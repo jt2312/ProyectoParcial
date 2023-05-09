@@ -14,8 +14,8 @@ namespace Parcial1.Models
         public int ID { get; set; }
         [Required(ErrorMessage = "Debe completar este campo")]
         [MaxLength(20)]
-        [MinLength(3)]            
-         [Display(Name = "Usuario")]
+        [MinLength(4)]
+        [Display(Name = "Usuario")]
         public string Usuarioo { get; set; }
         [Required(ErrorMessage = "Debe completar este campo")]
         [MinLength(8)]
@@ -26,13 +26,14 @@ namespace Parcial1.Models
         public string Apellido { get; set; }
         [Required(ErrorMessage = "Debe completar este campo")]
         [Display(Name = "Fecha de nacimiento")]
+        [DataType(DataType.Date)]
         public DateTime fechanacimiento { get; set; }
         [Required(ErrorMessage = "Debe completar este campo")]
         [Display(Name = "Genero")]
         public string genero { get; set; }
 
         [Required(ErrorMessage = "Debe completar este campo")]
-        [Display(Name = "Documento")]
+        [Range(55555, 99999999, ErrorMessage = "El número és inválido")]
         public int documento { get; set; }
 
         [Required(ErrorMessage = "Debe completar este campo")]
@@ -49,6 +50,7 @@ namespace Parcial1.Models
         public int telefono { get; set; }
         [Display(Name = "Terminos")]
         public bool terminos { get; set; }
-
+        
+        // public virtual Rol Rol { get; set; }
     }
 }

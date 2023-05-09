@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcUsuario.Data;
 using Parcial1.Models;
+using Parcial1.ViewModels;
 
 namespace Parcial1.Controllers
 {
@@ -20,14 +21,46 @@ namespace Parcial1.Controllers
         }
 
         // GET: Usuario
-        public async Task<IActionResult> Index()
-        {
-              return _context.Usuario != null ? 
-                          View(await _context.Usuario.ToListAsync()) :
-                          Problem("Entity set 'MvcUsuarioContext.Usuario'  is null.");
-        }
 
-        // GET: Usuario/Details/5
+            public async Task<IActionResult> Index(string NameFilter)
+            {
+             var query = from Usuario in _context.Usuario select Usuario;
+
+             if (!string.IsNullOrEmpty(NameFilter))
+             {
+                query = query.Where(x => x.Nombre.ToLower().Contains(NameFilter.ToLower())||
+                x.Apellido.ToLower().Contains(NameFilter.ToLower())||
+                x.nacionalidad.ToLower().Contains(NameFilter.ToLower())
+                );
+             }
+
+             var model = new UsuarioViewModels();
+             model.Usuarios= await query.ToListAsync();
+
+
+              return _context.Usuario != null ? 
+                          View(model) :
+                          Problem("Entity set 'MvcUsuarioContext.Usuario'  is null.");
+            }
+            // public async Task<IActionResult> Index(string ApellidoFilter)
+            // {
+            //  var query = from Usuario in _context.Usuario select Usuario;
+
+            //  if (!string.IsNullOrEmpty(ApellidoFilter))
+            //  {
+            //      query = query.Where(x => x.Apellido.Contains(ApellidoFilter));
+            //  }
+
+            //  var model = new UsuarioViewModel();
+            //  model.Usuarios = await query.ToListAsync();
+
+
+            //   return _context.Usuario != null ? 
+            //               View(model) :
+            //               Problem("Entity set 'MvcUsuarioContext.Usuario'  is null.");
+            // }
+
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Usuario == null)
@@ -52,8 +85,7 @@ namespace Parcial1.Controllers
         }
 
         // POST: Usuario/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Usuarioo,Contraseña,Nombre,Apellido,fechanacimiento,genero,documento,nacionalidad,domicilio,telefono,terminos")] Usuario usuario)
