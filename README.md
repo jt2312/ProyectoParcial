@@ -18,5 +18,4 @@ y luego tenemos 3 diferentes paginas para Crear, Editar, ver el detalle o Elimin
 
 
 ## Enlaces 
-- El enmaquetado fue hecho con [Bootsrap]([https://pages.github.com/](https://getbootstrap.com/docs/5.3/getting-started/introduction/)).
-
+- El enmaquetado fue hecho con [Bootsrap](https://getbootstrap.com/).
